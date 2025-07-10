@@ -1,7 +1,7 @@
 import React from "react";
 
 // img
-import NotFoundImg from "/notFound.png";
+import NotFoundImg from "/images/notFound.png";
 
 const NotFound = () => {
   return (
