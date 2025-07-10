@@ -1,35 +1,39 @@
 const express = require("express");
 
 // dotenv
-require("dotenv").config()
+require("dotenv").config();
 
 // cors
-const cors = require("cors")
+const cors = require("cors");
 
 // Database 'connect' import
-require("./db/connect")()
+require("./db/connect")();
 
+// blogsRoute
+const blogsRoute = require("./src/routes/blogsRoute");
+
+// ---------------------------
 
 // app
 const app = express();
 
 // port
-const port = process.env.PORT || 5000
+const port = process.env.PORT || 5000;
 
 // parse options
-app.use(cors())
-app.use(express.json())
-
-
+app.use(cors());
+app.use(express.json());
 
 // GET, '/'
-app.get('/', (req, res) => {
-    res.send('Hotel Motel - RoofTop Server is running...')
-})
+app.get("/", (req, res) => {
+  res.send("Hotel Motel - RoofTop Server is running...");
+});
 
-
-
+// App.use
+app.use("/api/v0/blogs", blogsRoute);
 
 app.listen(port, () => {
-    console.log(`\nFullStack MERN Blog 2025 - Server is running on http://localhost:${port}\n`)
-})
+  console.log(
+    `\nFullStack MERN Blog 2025 - Server is running on http://localhost:${port}\n`
+  );
+});
