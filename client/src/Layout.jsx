@@ -3,12 +3,12 @@ import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
-    <div>
-      <div>Navbar</div>
-      <div>
+    <div className="bg-bgprimary min-h-screen flex flex-col">
+      <div className="">Navbar</div>
+      <div className="flex-grow">
         <Outlet />
       </div>
-      <div>Footer</div>
+      <div className="mx-auto">Footer</div>
     </div>
   );
 };
