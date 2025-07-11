@@ -7,6 +7,11 @@ import Layout from "./Layout";
 
 // pages
 import Home from "./pages/Home";
+import About from "./pages/About";
+import Policy from "./pages/Policy";
+import Contact from "./pages/Contact";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
 
 const App = () => {
@@ -17,9 +22,14 @@ const App = () => {
           {/* Layout Wrapper */}
           <Route element={<Layout />}>
             <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/policies" element={<Policy />} />
+            <Route path="/contact" element={<Contact />} />
           </Route>
 
           {/* Non Layout Wrappers */}
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Register />} />
             <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

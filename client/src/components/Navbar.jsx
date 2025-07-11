@@ -9,18 +9,17 @@ import { navItems } from "../constants/constant";
 
 const Navbar = () => {
   const [isNavbarTransparent, setIsNavbarTransparent] = useState(true);
+  const [activeNav, setActiveNav] = useState("/");
 
   return (
     <header
       className={`${
-        isNavbarTransparent ? "bg-transparent" : "bg-white"
-      } pt-6 h-[5rem] transition-colors duration-300 overflow-hidden`}
+        isNavbarTransparent ? "bg-transparent" : "bg-bgprimary"
+      } transition-all duration-300 py-4 relative`}
     >
-      <nav className="mx-auto container md:max-w-7xl flex justify-between items-center px-2 md:px-6 lg:px-10">
+      <nav className="mx-auto md:max-w-7xl flex justify-between items-center px-2 md:px-6 lg:px-10 py-2 rounded-2xl">
         {/* Left Side */}
-        <div>
           <Logo />
-        </div>
 
         {/* Middle Side */}
         <div className="pr-5 hidden md:block">
@@ -29,7 +28,8 @@ const Navbar = () => {
               <Link
                 key={index}
                 to={item.href}
-                className="text-link px-3 py-2 hover:bg-link-hover rounded-lg text-[15px]"
+                className={`${activeNav === item.href ? "bg-gradient font-bold text-white" : "text-link"} px-3 py-2 hover:bg-link-hover rounded-lg text-[15px]`}
+                onClick={() => setActiveNav(item.href)}
               >
                 {item.label}
               </Link>

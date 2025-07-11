@@ -26,7 +26,20 @@
   --color-grad-to: #a216f9;
   --color-grad-hover-to: #bb12ee;
   --color-star: #fbbf24; /* Tailwind's yellow-400 */
+  --color-nav-bg: #202020;
+  
+   /* Dark mode */
+    --dark-color-bgprimary: #0e0e10;
+    --dark-color-primary: #f7f8f9;
+    --dark-color-accent: #839cb5;
+    --dark-color-h1: #d9ecff;
+    --dark-color-link-hover: #2d2d38;
+    --dark-color-link: #839cb5;
+    --dark-color-border: #282732;
+    --dark-color-page: #1c1c21;
+    /* Gradient colors might stay the same or change */
 }
+
 
 @layer components {
    .border-gradient {
