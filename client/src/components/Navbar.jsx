@@ -12,9 +12,9 @@ const Navbar = () => {
 
   return (
     <header
-      className={`sticky top-0 ${
+      className={`${
         isNavbarTransparent ? "bg-transparent" : "bg-white"
-      } pt-6 h-[5rem]`}
+      } pt-6 h-[5rem] transition-colors duration-300 overflow-hidden`}
     >
       <nav className="mx-auto container md:max-w-7xl flex justify-between items-center px-2 md:px-6 lg:px-10">
         {/* Left Side */}
@@ -48,7 +48,7 @@ const Navbar = () => {
             </Link>
             <Link
               to={"/signup"}
-              className="px-3 py-2 animated-gradient rounded-lg text-[15px] text-white font-bold "
+              className="relative px-3 py-2 bg-gradient rounded-lg text-[15px] text-white font-bold "
             >
               Sign Up
             </Link>

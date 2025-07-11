@@ -4,8 +4,9 @@ import Navbar from "./components/Navbar";
 
 const Layout = () => {
   return (
-    <div className="bg-page min-h-screen flex flex-col">
-      <div className="">
+    
+    <div className="bg-page min-h-screen flex flex-col h-[90rem] relative">
+      <div className="sticky top-0 z-50">
         <Navbar />
       </div>
       <div className="flex-grow">

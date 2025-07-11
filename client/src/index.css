@@ -29,10 +29,14 @@
 }
 
 @layer components {
-  .gradient {
-    @apply  bg-gradient-to-r from-grad-from via-grad-via to-grad-to hover:from-grad-via hover:to-grad-hover-to transition-all duration-500
+   .border-gradient {
+    @apply border-2 border-grad-via rounded-lg;
+  }
+  .bg-gradient {
+    @apply bg-gradient-to-r from-grad-from via-grad-via to-grad-to hover:from-grad-via hover:to-grad-hover-to transition-all duration-500
   }
 }
+/* via-grad-via to-grad-to hover:from-grad-via hover:to-grad-hover-to transition-all duration-500 */
 
 @layer utilities {
   body {
@@ -42,6 +46,7 @@
 
 .animated-gradient {
   background: linear-gradient(270deg, var(--color-grad-from), var(--color-grad-via), var(--color-grad-to), var(--color-grad-hover-to));
+  border: 2px solid linear-gradient(270deg, var(--color-grad-hover-to), var(--color-grad-from), var(--color-grad-via), var(--color-grad-to));
   background-size: 300% 300%;
   animation: gradientFlow 5s ease infinite;
 }
