@@ -1,21 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 @import "tailwindcss";
 
+* {
+  box-sizing: border-box;
+}
 
 @theme {
-    --font-sans: "Mona Sans", sans-serif;
-    --color-white-50: #d9ecff;
-    --color-black-50: #1c1c21;
-    --color-black-100: #0e0e10;
-    --color-black-200: #282732;
-    --color-blue-50: #839cb5;
-    --color-blue-100: #2d2d38;
-    --color-bgprimary: #F7F8F9;
-    --color-primary: #222;
-    --color-accent: #34495E;
-  }
+  --font-sans: "Plus Jakarta Sans", "Mona Sans", sans-serif;
+  --color-white-50: #d9ecff;
+  --color-black-50: #1c1c21;
+  --color-black-100: #0e0e10;
+  --color-black-200: #282732;
+  --color-blue-50: #839cb5;
+  --color-blue-100: #2d2d38;
+  --color-bgprimary: #f7f8f9;
+  --color-primary: #222;
+  --color-accent: #34495e;
+  --color-h1: #24223e;
+  --color-link-hover: #f1f1f9;
+  --color-link: #403e57;
+  --color-border: #dadada;
+  --color-page: #feffff;
+  --color-grad-from: #4570fa; /* Tailwind's blue-600 */
+  --color-grad-via: #7612fa;
+  --color-grad-to: #a216f9;
+  --color-grad-hover-to: #bb12ee;
+  --color-star: #fbbf24; /* Tailwind's yellow-400 */
+}
 
-  @layer utilities {
-    body {
-      @apply font-sans
-    }
+@layer components {
+  .gradient {
+    @apply  bg-gradient-to-r from-grad-from via-grad-via to-grad-to hover:from-grad-via hover:to-grad-hover-to transition-all duration-500
   }
+}
+
+@layer utilities {
+  body {
+    @apply font-sans;
+  }
+}
+
+.animated-gradient {
+  background: linear-gradient(270deg, var(--color-grad-from), var(--color-grad-via), var(--color-grad-to), var(--color-grad-hover-to));
+  background-size: 300% 300%;
+  animation: gradientFlow 5s ease infinite;
+}
+
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
