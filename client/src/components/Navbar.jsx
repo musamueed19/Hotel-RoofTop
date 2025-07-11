@@ -6,6 +6,7 @@ import Logo from "./Logo";
 
 // navItems
 import { navItems } from "../constants/constant";
+import MobileNav from "./MobileNav";
 
 const Navbar = () => {
   const [isNavbarTransparent, setIsNavbarTransparent] = useState(true);
@@ -38,8 +39,8 @@ const Navbar = () => {
         </div>
 
         {/* Right Side */}
-        <div>
-          <div className="h-full border py-1 px-1 rounded-xl border-border space-x-1 flex items-center">
+        <div className="flex items-center space-x-3">
+          <div className="hidden sm:flex h-full border py-1 px-1 rounded-xl border-border space-x-1 items-center">
             <Link
               to={"/login"}
               className="text-link px-3 py-2 hover:bg-link-hover rounded-lg text-[15px]"
@@ -53,7 +54,11 @@ const Navbar = () => {
               Sign Up
             </Link>
           </div>
+
+          {/* Mobile Nav */}
+        <MobileNav navItems={navItems} activeNav={activeNav} setActiveNav={setActiveNav} />
         </div>
+
       </nav>
     </header>
   );
