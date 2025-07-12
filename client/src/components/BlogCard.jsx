@@ -19,7 +19,7 @@ const BlogCard = ({ item }) => {
   const [imgSrc, setImgSrc] = useState(coverImg);
 
   return (
-    <Link to={`/${_id}`}>
+    <Link to={`/blog/${_id}/${title}`}>
       <div className="h-full flex flex-col gap-y-4 bg-white p-4 rounded-xl">
         {/* img */}
         <div className="w-full flex items-start justify-center">
@@ -47,18 +47,18 @@ const BlogCard = ({ item }) => {
         <div className="h-full flex items-end justify-between">
           {/* author */}
           <div className="flex items-center gap-x-2">
-            <div className="size-10">
-              <img
+            <div className="size-10 capitalize">
+              {authorImg ? <img
                 src={authorImg}
                 alt="authorImg"
                 className="object-cover rounded-full overflow-hidden"
-              />
+              /> : <span className="bg-link/30 w-full h-full flex justify-center items-center rounded-full font-bold text-xl">{author.slice(0, 1)}</span>}
             </div>
 
             {/* author name, published Date */}
-            <div className="h-fit">
+            <div className="h-fit capitalize">
               <p className="text-[#292929] font-bold">{author}</p>
-              <p className="text-sm text-link/70 font-medium">
+              <p className="text-[13px] text-link/70 font-semibold">
                 {publishedDate}
               </p>
             </div>

@@ -26,7 +26,7 @@ const App = () => {
             <Route path="/about" element={<About />} />
             <Route path="/policies" element={<Policy />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/blog/:id" element={<Blog />} />
+            <Route path="/blog/:id/:title" element={<Blog />} />
           </Route>
 
           {/* Non Layout Wrappers */}
