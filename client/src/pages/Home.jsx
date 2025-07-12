@@ -1,8 +1,19 @@
 import React from 'react'
 
+// sections
+import Hero from "../sections/Hero"
+import Blogs from "../sections/Blogs"
+
 const Home = () => {
   return (
-    <div>Home</div>
+    <div>
+      {/* Hero */}
+      <Hero />
+
+
+      {/* Blogs */}
+      <Blogs />
+    </div>
   )
 }
 
