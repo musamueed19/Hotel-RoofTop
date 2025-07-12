@@ -11,6 +11,9 @@ const Blogs = () => {
     console.log(query)
   }, [query])
 
+
+  const {data} = useFetchBlogs
+
   return (
     <div className="relative">
       <SearchBar query={query} setQuery={setQuery} />

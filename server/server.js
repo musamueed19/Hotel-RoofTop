@@ -21,7 +21,9 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // parse options
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:5173', 'https://hotelrt.vercel.app']
+}));
 app.use(express.json());
 
 // GET, '/'
