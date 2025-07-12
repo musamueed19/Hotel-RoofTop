@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 
 const Layout = () => {
   return (
-    <div className="bg-bgprimary min-h-screen flex flex-col h-[90rem] relative">
+    <div className="bg-bgprimary min-h-screen h-fit flex flex-col h-[90rem] relative">
       <div className="sticky top-0 z-50">
         <Navbar />
       </div>
