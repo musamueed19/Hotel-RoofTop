@@ -6,15 +6,14 @@ import Blogs from "../sections/Blogs"
 
 const Home = () => {
   return (
-    <div>
+    <div className="my-8 py-6 bg-[#fff] rounded-xl">
       {/* Hero */}
       <Hero />
-
 
       {/* Blogs */}
       <Blogs />
     </div>
-  )
+  );
 }
 
 export default Home

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link, Navigate } from "react-router-dom";
 
@@ -16,11 +16,21 @@ const Navbar = () => {
     <header
       className={`${
         isNavbarTransparent ? "bg-transparent" : "bg-bgprimary"
-      } transition-all duration-300 py-4 relative`}
-    >
-      <nav className="mx-auto w-[98%] md:max-w-7xl flex justify-between items-center px-2 md:px-6 lg:px-10 py-2 rounded-2xl">
+        } transition-all duration-300 py-4 relative`}>
+    
+      {/* Background element that will handle the blur effect */}
+      <div className={`
+        absolute inset-0 -z-10
+         backdrop-blur-xs mx-auto w-[98%] md:max-w-7xl
+        transition-all duration-300
+        h-[calc(100%_-_1rem)] top-0 rounded-xl overflow-hidden
+      `}></div>
+    
+      <nav
+        className={`mx-auto w-[98%] md:max-w-7xl flex justify-between items-center px-2 md:px-6 lg:px-10 py-2 rounded-2xl bg-[#fff] transition-all duration-300`}
+      >
         {/* Left Side */}
-          <Logo />
+        <Logo />
 
         {/* Middle Side */}
         <div className="pr-5 hidden md:block">
@@ -29,7 +39,11 @@ const Navbar = () => {
               <Link
                 key={index}
                 to={item.href}
-                className={`${activeNav === item.href ? "bg-gradient font-bold text-white" : "text-link"} px-3 py-2 hover:bg-link-hover rounded-lg text-[15px]`}
+                className={`${
+                  activeNav === item.href
+                    ? "bg-gradient font-bold text-white"
+                    : "text-link"
+                } px-3 py-2 hover:bg-link-hover rounded-lg text-[15px]`}
                 onClick={() => setActiveNav(item.href)}
               >
                 {item.label}
@@ -56,9 +70,12 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Nav */}
-        <MobileNav navItems={navItems} activeNav={activeNav} setActiveNav={setActiveNav} />
+          <MobileNav
+            navItems={navItems}
+            activeNav={activeNav}
+            setActiveNav={setActiveNav}
+          />
         </div>
-
       </nav>
     </header>
   );
