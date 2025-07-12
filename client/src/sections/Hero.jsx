@@ -17,7 +17,7 @@ import {swiperItems} from "../constants/constant"
 
 const Hero = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-x-4 gap-y-8 py-6 md:h-[30rem]">
+    <div className="relative grid grid-cols-1 lg:grid-cols-2 md:gap-x-4 gap-y-8 py-6 md:h-fit">
       {/* Text */}
       <div className="h-full flex flex-col text-center justify-center gap-4">
         <h1 className="capitalize text-3xl md:text-4xl font-bold px-2 md:px-6">
@@ -48,7 +48,7 @@ const Hero = () => {
               <img
                 src={item.img}
                 alt=""
-                className="object-contain overflow-hidden rounded-b-2xl"
+                className="object-cover overflow-hidden rounded-b-2xl"
               />
             </SwiperSlide>
           ))}

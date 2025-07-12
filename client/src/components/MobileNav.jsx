@@ -22,7 +22,7 @@ const MobileNav = ({ navItems, activeNav, setActiveNav }) => {
         )}
       </div>
       {isOpen && (
-        <div className="w-fit fixed top-[4.8rem] right-4 bg-white">
+        <div className="w-fit fixed top-[4.8rem] right-4 bg-white rounded-xl shadow-2xl">
           <div className="relative">
             <div className="border py-6 px-2 rounded-xl border-border space-y-3 flex flex-col items-center transition-all duration-500">
               {navItems.map((item, index) => (

@@ -1,12 +1,21 @@
-import React from 'react'
-import SearchBar from '../components/SearchBar'
+import React, { useEffect, useState } from "react";
+import SearchBar from "../components/SearchBar";
 
 const Blogs = () => {
-  return (
-    <div>
-      <SearchBar />
-    </div>
-  )
-}
+  const [query, setQuery] = useState({
+    search: ""
+  });
 
-export default Blogs
+  // useEffect
+  useEffect(() => {
+    console.log(query)
+  }, [query])
+
+  return (
+    <div className="relative">
+      <SearchBar query={query} setQuery={setQuery} />
+    </div>
+  );
+};
+
+export default Blogs;

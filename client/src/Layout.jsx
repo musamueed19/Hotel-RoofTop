@@ -9,7 +9,7 @@ const Layout = () => {
         <Navbar />
       </div>
       <div className="flex-grow">
-        <div className="mx-auto md:max-w-8xl lg:max-w-[88rem] px-2 md:px-6 lg:px-10 my-2">
+        <div className="mx-auto md:max-w-8xl lg:max-w-[88rem] md:px-6 lg:px-10 my-2">
           <Outlet />
         </div>
       </div>
