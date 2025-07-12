@@ -1,8 +1,23 @@
 import React from "react";
 
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
+// import required modules
+import { Pagination, Navigation, Autoplay } from 'swiper/modules';
+
+
+// import swiperItems
+import {swiperItems} from "../constants/constant"
+
 const Hero = () => {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-4 gap-y-8 px-2 md:px-4 py-6 md:h-[30rem]">
+    <div className="grid grid-cols-1 lg:grid-cols-2 md:gap-x-4 gap-y-8 py-6 md:h-[30rem]">
       {/* Text */}
       <div className="h-full flex flex-col text-center justify-center gap-4">
         <h1 className="capitalize text-3xl md:text-4xl font-bold px-2 md:px-6">
@@ -18,11 +33,26 @@ const Hero = () => {
 
       {/* Img */}
       <div className="flex w-full h-full items-center justify-center">
-        <img
-          src="/images/carousel/img1.png"
-          alt=""
-          className="object-contain rounded-xl overflow-hidden"
-        />
+        <Swiper
+          spaceBetween={20}
+          pagination={{
+            type: "progressbar",
+          }}
+          navigation={false}
+          modules={[Pagination, Navigation, Autoplay]}
+          className="mySwiper overflow-hidden rounded-b-2xl"
+          autoplay={{ delay: 2500, disableOnInteraction: false }}
+        >
+          {swiperItems.map((item, index) => (
+            <SwiperSlide>
+              <img
+                src={item.img}
+                alt=""
+                className="object-contain overflow-hidden rounded-b-2xl"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
     </div>
   );

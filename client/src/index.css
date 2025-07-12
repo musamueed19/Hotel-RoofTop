@@ -55,6 +55,12 @@
   body {
     @apply font-sans;
   }
+  .swiper-pagination-progressbar-fill, .swiper-pagination-progressbar {
+    @apply rounded-lg overflow-hidden
+  }
+  /* .swiper-pagination-progressbar-fill {
+    @apply bg-blue-400
+  } */
 }
 
 .animated-gradient {
