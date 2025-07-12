@@ -9,6 +9,10 @@ const SearchBar = ({ query, setQuery }) => {
     
     function handleSearch(e) {
         setSearchValue(e.target.value)
+        setQuery(prev => ({
+            ...prev,
+            search: searchValue
+        }))
     }
 
     function handleKeyPress(e) {

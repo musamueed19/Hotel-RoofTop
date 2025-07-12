@@ -10,7 +10,7 @@ const cors = require("cors");
 require("./db/connect")();
 
 // blogsRoute
-const blogsRoute = require("./src/routes/blogsRoute");
+const blogsRoute = require("./src/routes/blogRoute");
 
 // ---------------------------
 
