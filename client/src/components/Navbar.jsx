@@ -40,11 +40,13 @@ const Navbar = () => {
                 key={index}
                 to={item.href}
                 className={`${
-                  activeNav === item.href
+                  item.href === window.location.pathname
                     ? "bg-gradient font-bold text-white"
                     : "text-link"
                 } px-3 py-2 hover:bg-link-hover rounded-lg text-[15px]`}
-                onClick={() => setActiveNav(item.href)}
+                onClick={() => {
+                  setActiveNav(item.href)
+                }}
               >
                 {item.label}
               </Link>

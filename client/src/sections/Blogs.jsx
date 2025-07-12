@@ -15,7 +15,7 @@ const Blogs = () => {
 
   // get data using RTK Query
   const { data, error, isLoading } = useFetchBlogsQuery(query);
-  console.log(data)
+  // console.log( error?.data?.message)
 
   return (
     <div className="relative">
@@ -26,7 +26,7 @@ const Blogs = () => {
       {/* Loader */}
       {isLoading && <Loader />}
       {/* Error Print */}
-      {error && <div>{error.toString()}</div>}
+      {error && <p className="my-8 py-3 px-6 bg-red-100 rounded-lg text-center text-red-600 font-bold text-xl mx-auto w-fit border-red-200 border">{error?.data?.message?.toString() || "Failed to Get Blogs!"}</p>}
 
       {/* Print Blogs */}
       {data && (
