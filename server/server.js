@@ -9,8 +9,10 @@ const cors = require("cors");
 // Database 'connect' import
 require("./db/connect")();
 
-// blogsRoute
-const blogsRoute = require("./src/routes/blogRoute");
+// blogRoute
+const blogRoute = require("./src/routes/blogRoute");
+// userRoute
+const userRoute = require("./src/routes/userRoute");
 
 // ---------------------------
 
@@ -27,6 +29,9 @@ app.use(
     credentials: true, // enable set cookies
   })
 );
+
+
+// json middleware
 app.use(express.json());
 
 // GET, '/'
@@ -35,7 +40,8 @@ app.get("/", (req, res) => {
 });
 
 // App.use
-app.use("/api/v0/blogs", blogsRoute);
+app.use("/api/v0/blogs", blogRoute);
+app.use("/api/v0/auth", userRoute);
 
 app.listen(port, () => {
   console.log(
