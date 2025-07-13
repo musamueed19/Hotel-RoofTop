@@ -5,6 +5,10 @@ const router = express.Router();
 // userModel
 const userModel = require("../models/userModel");
 
+
+// middleware generateToken
+const generateToken = require("../middlewares/generateToken")
+
 // POST - REGISTER
 router.post("/register", async (req, res) => {
   try {
@@ -79,8 +83,16 @@ router.post("/", async (req, res) => {
     }
 
     //   todo: generate token here
+    const token = await generateToken(user._id, user.role)
+    // console.log("GENERATED TOKEN - ", token)
+    res.cookie("token", token, {
+      httpOnly: true, //enable this when you have only http://
+      secure: true,
+      sameSite: true,
+    })
 
     return res.send({
+      token,
       success: true,
       result,
       message: "User Registered Successfully",
