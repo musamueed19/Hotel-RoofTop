@@ -5,6 +5,8 @@ const router = express.Router();
 // userModel
 const userModel = require("../models/userModel");
 
+
+
 // POST - REGISTER
 router.post("/register", async (req, res) => {
   try {
@@ -23,7 +25,7 @@ router.post("/register", async (req, res) => {
       profileImg,
     });
 console.log(user)
-    // const result = await user.save();
+    const result = await user.save();
     if (result) {
       return res.send({
         success: true,

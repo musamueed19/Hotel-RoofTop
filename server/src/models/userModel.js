@@ -1,5 +1,8 @@
 const { Schema, model } = require("mongoose");
 
+// import bcrypt
+const bcrypt = require("bcrypt");
+
 const userSchema = new Schema(
   {
     profileImg: { type: String },
@@ -25,6 +28,19 @@ const userSchema = new Schema(
     timestamps: true,
   }
 );
+
+// hash password before saving to the database
+// Use a regular function instead of arrow function to maintain correct 'this' context
+userSchema.pre("save", async function (next) {
+  const user = this;
+  // Only hash the password if it has been modified (or is new)
+  // as we are using middleware, we will do our middleware tasks and then next()
+  if (!user.isModified("password")) return next();
+  const hashedPassword = await bcrypt.hash(user.password, 10);
+  user.password = hashedPassword;
+
+  next();
+});
 
 const userModel = model("User", userSchema);
 
