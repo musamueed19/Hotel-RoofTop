@@ -5,12 +5,16 @@ const router = express.Router();
 // userModel
 const userModel = require("../models/userModel");
 
-
-
 // POST - REGISTER
 router.post("/register", async (req, res) => {
   try {
-    const { email, firstName, lastName, password, profileImg: profileImg="" } = req.body;
+    const {
+      email,
+      firstName,
+      lastName,
+      password,
+      profileImg: profileImg = "",
+    } = req.body;
 
     // get user all ready registered with this email, if not.
     // then add new user with this data
@@ -24,7 +28,7 @@ router.post("/register", async (req, res) => {
       password,
       profileImg,
     });
-console.log(user)
+    console.log(user);
     const result = await user.save();
     if (result) {
       return res.send({
@@ -32,19 +36,60 @@ console.log(user)
         result,
         message: "User Registered Successfully",
       });
-      }
-    else {
-        return res.status(404).send({
-          success: false,
-          result: result || "Sorry! Registration Failed",
-          message: "Sorry! Registration Failed",
-        });
-      }
+    } else {
+      return res.status(404).send({
+        success: false,
+        result: result || "Sorry! Registration Failed",
+        message: "Sorry! Registration Failed",
+      });
+    }
   } catch (error) {
     return res.status(404).send({
       success: false,
       result: error.message || error || "Sorry! Registration Failed",
       message: "Sorry! Registration Failed",
+    });
+  }
+});
+
+// POST - LOGIN
+router.post("/", async (req, res) => {
+  try {
+    const { email } = req.body;
+
+    // get user with this email
+    const user = await userModel.findOne({ email });
+
+    if (!user) {
+      return res.status(404).send({
+        success: false,
+        result: "User with this Email does not Exists",
+        message: "User with this Email does not Exists",
+      });
+    }
+    const { password, ...result } = user?._doc;
+
+    const isPasswordCorrect = await user.comparePassword(req.body.password);
+    if (!isPasswordCorrect) {
+      return res.status(404).send({
+        success: false,
+        result: result || "Incorrect Password",
+        message: "Incorrect Password",
+      });
+    }
+
+    //   todo: generate token here
+
+    return res.send({
+      success: true,
+      result,
+      message: "User Registered Successfully",
+    });
+  } catch (error) {
+    return res.status(404).send({
+      success: false,
+      result: error.message || error || "Login Failed! Try again",
+      message: "Login Failed! Try again",
     });
   }
 });
