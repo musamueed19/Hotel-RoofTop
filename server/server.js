@@ -11,6 +11,8 @@ require("./db/connect")();
 
 // blogRoute
 const blogRoute = require("./src/routes/blogRoute");
+// authRoute
+const authRoute = require("./src/routes/authRoute");
 // userRoute
 const userRoute = require("./src/routes/userRoute");
 
@@ -41,7 +43,8 @@ app.get("/", (req, res) => {
 
 // App.use
 app.use("/api/v0/blogs", blogRoute);
-app.use("/api/v0/auth", userRoute);
+app.use("/api/v0/auth", authRoute);
+app.use("/api/v0/users", userRoute);
 
 app.listen(port, () => {
   console.log(

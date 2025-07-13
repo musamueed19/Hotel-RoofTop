@@ -72,13 +72,13 @@ router.get("/", async (req, res) => {
 
     const results = await blogsModel.find(query);
     // const total = await blogsModel.countDocuments();
-    const total = results.length;
+    // const total = results.length;
 
     res.send({
       success: true,
       results,
       messgae: "Blogs fetched successfully",
-      total,
+      total: results.length,
     });
   } catch (error) {
     res.status(404).send({
