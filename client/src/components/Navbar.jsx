@@ -27,7 +27,7 @@ const Navbar = () => {
       `}></div>
     
       <nav
-        className={`mx-auto w-[98%] md:max-w-7xl flex justify-between items-center px-2 md:px-6 lg:px-10 py-2 rounded-2xl bg-[#fff] transition-all duration-300`}
+        className={`mx-auto w-[98%] md:max-w-7xl flex justify-between items-center px-2 md:px-3 lg:px-10 py-2 rounded-2xl bg-[#fff] transition-all duration-300`}
       >
         {/* Left Side */}
         <Logo />
