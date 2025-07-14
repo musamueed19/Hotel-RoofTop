@@ -33,7 +33,7 @@ const Navbar = () => {
         <Logo />
 
         {/* Middle Side */}
-        <div className="pr-5 hidden md:block">
+        <div className="lg:pr-5 hidden md:block">
           <div className="h-full border py-1 px-1 rounded-xl border-border space-x-1 flex items-center">
             {navItems.map((item, index) => (
               <Link
