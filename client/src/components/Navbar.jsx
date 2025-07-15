@@ -26,6 +26,7 @@ const Navbar = () => {
         h-[calc(100%_-_1rem)] top-0 rounded-xl overflow-hidden
       `}></div>
     
+      {/* now, just retain my streak */}
       <nav
         className={`mx-auto w-[98%] md:max-w-7xl flex justify-between items-center px-2 md:px-3 lg:px-10 py-2 rounded-2xl bg-[#fff] transition-all duration-300`}
       >
